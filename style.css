@@ -1,0 +1,160 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  background-color: #f4f4f4;
+  position: relative;
+  /* overflow: hidden; */
+}
+
+h1 {
+  margin: 2rem 0;
+}
+.additional-info {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  /* background-color: rgb(160, 137, 137); */
+}
+
+p {
+  font-size: 1.6rem;
+  font-style: italic;
+  padding-bottom: 0.5rem;
+  margin: 1rem 0;
+}
+.container {
+  width: 70rem;
+  height: 70rem;
+  /* background-color: orangered; */
+  margin: 2rem auto 3rem;
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: auto;
+  /* border: 1px solid #eee; */
+}
+.field {
+  width: 7rem;
+  height: 7rem;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  display: grid;
+  place-content: center;
+  position: relative;
+  cursor: pointer;
+}
+.field::before {
+  content: attr(data-fieldId);
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  font-size: 1.4rem;
+  /* comment display:none in order to visualize field id-s*/
+  display: none;
+}
+
+.start-field,
+.end-field {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+}
+.start-field {
+  background-color: yellowgreen;
+}
+.end-field {
+  background-color: orangered;
+}
+
+.ball {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background-color: lightblue;
+}
+.active {
+  border: 1px solid orangered;
+}
+.visited-field {
+  background-color: rgba(220, 228, 109, 0.2);
+  transition: background-color 0.5s;
+}
+.goal {
+  background-color: rgba(238, 49, 24, 0.2);
+  transition: background-color 0.5s;
+}
+.generate-path,
+.reset-board,
+.info {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.hold {
+  outline: 1px solid black;
+  outline-offset: 3px;
+}
+
+.hovered {
+  transform: scale(1.03);
+  border: 1px solid orangered;
+  transition: all 0.3s;
+}
+
+.invisible {
+  /* make this background color same as background color of board fields */
+  background-color: white;
+}
+
+.wall {
+  width: 4.5rem;
+  height: 4.5rem;
+  background-color: #888;
+  display: grid;
+}
+
+.red {
+  background-color: orangered;
+}
+.green {
+  background-color: yellowgreen;
+}
+
+.shortest-path {
+  background-color: lightskyblue;
+  transition: background-color 0.2s;
+}
+@media (max-width: 1750px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+/* Checkered pattern */
+
+/* .container > .field:nth-child(-2n + 10),
+.container > .field:nth-child(10) ~ div:nth-child(-2n + 19),
+.container > .field:nth-child(20) ~ div:nth-child(-2n + 30),
+.container > .field:nth-child(30) ~ div:nth-child(-2n + 39),
+.container > .field:nth-child(40) ~ div:nth-child(-2n + 50),
+.container > .field:nth-child(50) ~ div:nth-child(-2n + 59),
+.container > .field:nth-child(60) ~ div:nth-child(-2n + 70),
+.container > .field:nth-child(70) ~ div:nth-child(-2n + 79),
+.container > .field:nth-child(80) ~ div:nth-child(-2n + 90),
+.container > .field:nth-child(90) ~ div:nth-child(-2n + 99) {
+  background-color: #ddd;
+} */
